@@ -1,0 +1,33 @@
+﻿@model Sinif
+@{
+    ViewData["Title"] = "SinifDuzenle";
+}
+
+<partial name="SinifPartial" />
+
+<br />
+
+<form class="row g-3" asp-action="SinifDuzenle" asp-controller="Sinif" method="post">
+    <input type="hidden" asp-for="SinifId">
+    <div class="col-6">
+        <label class="form-label">Sınıf</label>
+        <select asp-for="SinifAdi" class="form-select">
+            <option selected>Seç...</option>
+            <option>Kimya</option>
+            <option>Biyoloji</option>
+            <option>Almanca</option>
+            <option>Beden Eğitimi</option>
+            <option>Din Kültürü</option>
+            <option>Matematik</option>
+            <option>Fizik</option>
+            <option>İngilizce</option>
+        </select>
+    </div>
+    <div class="col-md-6">
+        <label asp-for="Kontenjan" class="form-label"></label>
+        <input asp-for="Kontenjan" class="form-control">
+    </div>
+    <div class="col-12">
+        <button type="submit" class="btn btn-primary">Kaydet</button>
+    </div>
+</form>

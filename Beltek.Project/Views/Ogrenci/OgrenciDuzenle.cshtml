@@ -1,0 +1,37 @@
+﻿@model Ogrenci
+@{
+    ViewData["Title"] = "OgrenciDuzenle";
+}
+
+<partial name="OgrenciPartial" />
+
+<br />
+
+<form class="row g-3" asp-action="OgrenciDuzenle" asp-controller="Ogrenci" method="post">
+    <input type="hidden" asp-for="OgrenciId">
+
+    <div class="col-md-6">
+        <label asp-for="Isim" class="form-label"></label>
+        <input asp-for="Isim" class="form-control">
+    </div>
+    <div class="col-md-6">
+        <label asp-for="Soyisim" class="form-label"></label>
+        <input asp-for="Soyisim" class="form-control">
+    </div>
+    <div class="col-6">
+        <label asp-for="Numara" class="form-label"></label>
+        <input asp-for="Numara" class="form-control">
+    </div>
+    <div class="col-6">
+        <label class="form-label">Sınıf</label>
+        <select asp-for="Sinif.SinifId" asp-items="ViewBag.Siniflar" class="form-select"></select>
+    </div>
+
+    <input type="hidden" asp-for="Sinif.SinifId">
+    <input asp-for="Sinif.SinifAdi" type="hidden" />
+    <input asp-for="Sinif.Kontenjan" type="hidden" />
+
+    <div class="col-12">
+        <button type="submit" class="btn btn-primary">Kaydet</button>
+    </div>
+</form>

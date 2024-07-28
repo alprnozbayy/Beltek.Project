@@ -1,0 +1,37 @@
+﻿@model Ogrenci
+@{
+    ViewData["Title"] = "OgrenciEkle";
+}
+
+<partial name="OgrenciPartial" />
+
+<br />
+
+@if (ViewBag.ErrorMessage != null)
+{
+    <div class="alert alert-warning">
+        @ViewBag.ErrorMessage
+    </div>
+}
+
+<form class="row g-3" asp-action="OgrenciEkle" asp-controller="Ogrenci" method="post">
+    <div class="col-md-6">
+        <label asp-for="Isim" class="form-label"></label>
+        <input asp-for="Isim" class="form-control">
+    </div>
+    <div class="col-md-6">
+        <label asp-for="Soyisim" class="form-label"></label>
+        <input asp-for="Soyisim" class="form-control">
+    </div>
+    <div class="col-6">
+        <label asp-for="Numara" class="form-label"></label>
+        <input asp-for="Numara" class="form-control">
+    </div>
+    <div class="col-6">
+        <label class="form-label">Sınıf</label>
+        <select asp-for="SinifId" asp-items="ViewBag.Siniflar" class="form-select"></select>
+    </div>
+    <div class="col-12">
+        <button type="submit" class="btn btn-primary">Kaydet</button>
+    </div>
+</form>
